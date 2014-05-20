@@ -14,6 +14,7 @@ class ProductTest < ActiveSupport::TestCase
   	assert product.errors[:image_url].any?
   end
 
+
   test "product price must be positive" do
   	product = Product.new(title: "My Book Title",
   		description: "yyy",
@@ -46,6 +47,23 @@ class ProductTest < ActiveSupport::TestCase
   	bad.each do |name|
   		assert new_product(name).invalid?, "#{name} shouldn't be valid"
   	end
+  end
+
+
+  test "title al menos de 10 caracteres" do
+  	title= "123456789"
+  	product = Product.new(title: title,
+	description: "yyy",
+	price: 1,
+	image_url: "fred.gif")
+	assert product.invalid?, "el titulo #{title} debe contener al menos 10 caracteres"
+	title= "12345678901"
+	product = Product.new(title: title,
+	description: "yyy",
+	price: 1,
+	image_url: "fred.gif")
+	assert product.valid?, "el titulo #{title} debe poder contener 10 caracteres"
+  	
   end
 
   test "product is not valid without a unique title" do
