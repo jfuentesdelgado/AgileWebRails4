@@ -7,4 +7,10 @@ class Product < ActiveRecord::Base
 		with: %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG or PNG image.'
 	}
+
+	#Este metodo lo usa el sistema de cache en la vista para
+	# ver si ha habido cambio en la base de datos
+	def self.latest
+		Product.order(:updated_at).last
+	end
 end
