@@ -43,3 +43,16 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#para solucionar un problema de limitación de las cookies para session
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+group :development do
+# Use debugger
+ # gem 'debugger'
+
+#muestra los errores de forma mas clara, incluso valores de variables
+ gem "better_errors"
+ gem "binding_of_caller"
+
+end
