@@ -42,7 +42,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+ gem 'debugger', group: [:development, :test]
 
 #para solucionar un problema de limitación de las cookies para session
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
